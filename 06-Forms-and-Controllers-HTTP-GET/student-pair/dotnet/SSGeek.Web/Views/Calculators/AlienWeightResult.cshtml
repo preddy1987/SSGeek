@@ -1,4 +1,4 @@
-﻿
+﻿@model AlienWeightModel
 
 @{
     ViewData["Title"] = "Alien Weight Result";
@@ -7,5 +7,7 @@
 
 <section id="calculatorResult" class="centeredPanel">
 
+<img src="~/images/@(Model.Planet).jpg" class="planet-picture"/>
+<p class="description">If you are @Model.Weight lbs on planet Earth, you would weigh @Model.WeightConversion() lbs on @(Model.Planet).</p>
 
 </section>

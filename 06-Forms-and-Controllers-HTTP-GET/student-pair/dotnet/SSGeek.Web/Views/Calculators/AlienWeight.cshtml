@@ -1,9 +1,27 @@
-﻿
-@{
-    ViewData["Title"] = "Alien Weight";
-}
-
-<section class="centeredPanel">
+﻿@using SSGeek.Web.Controllers
+@using SSGeek.Web.Models
 
 
-</section>
+@model AlienWeightModel
+
+
+    @{
+        ViewData["Title"] = "Alien Weight";
+    }
+
+    <section class="centeredPanel">
+        <h1>Alien Weight Calculator</h1>
+
+        <form asp-controller="Calculators" asp-action="AlienWeightResult" method="get">
+
+            <div>
+                <label asp-for="Planet"></label>
+                <select asp-for="Planet" asp-items="AlienWeightModel.planets"></select>
+            </div>
+            <label asp-for="Weight"></label>
+            <input asp-for="Weight" placeholder="in lbs" />
+
+            <input type="submit" value="Submit" />
+        </form>
+
+    </section>

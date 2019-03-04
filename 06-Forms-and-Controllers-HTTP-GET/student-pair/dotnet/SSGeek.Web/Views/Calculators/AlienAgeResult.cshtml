@@ -1,0 +1,13 @@
+﻿@model AlienAgeModel
+
+@{
+    ViewData["Title"] = "Alien Age Result";
+}
+
+
+<section id="calculatorResult" class="centeredPanel">
+
+    <img src="~/images/@(Model.Planet).jpg" class="planet-picture" />
+    <p class="description">If you are @Model.Age years old on planet Earth, you would be @Model.AgeConversion() years old on @(Model.Planet).</p>
+
+</section>

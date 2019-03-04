@@ -200,3 +200,19 @@ section.centeredPanel {
         color: #000;
         text-align: left;
     }
+
+    .planet-picture {
+        width: 15%;
+        height: 15%;
+        vertical-align: middle;
+    }
+
+    .description {
+        font-weight: bold;
+        padding-top: 10px;
+        font-size: larger;
+    }
+
+    #calculatorResult {
+        display: flex;
+    }

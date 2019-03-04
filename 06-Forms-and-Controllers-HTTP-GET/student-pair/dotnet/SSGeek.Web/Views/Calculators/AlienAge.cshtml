@@ -1,0 +1,27 @@
+﻿@using SSGeek.Web.Controllers
+@using SSGeek.Web.Models
+
+
+@model AlienAgeModel
+
+
+@{
+    ViewData["Title"] = "Alien Age";
+}
+
+<section class="centeredPanel">
+    <h1>Alien Age Calculator</h1>
+
+    <form asp-controller="Calculators" asp-action="AlienAgeResult" method="get">
+
+        <div>
+            <label asp-for="Planet"></label>
+            <select asp-for="Planet" asp-items="AlienAgeModel.planets"></select>
+        </div>
+        <label asp-for="Age"></label>
+        <input asp-for="Age" placeholder="in years" />
+
+        <input type="submit" value="Submit" />
+    </form>
+
+</section>

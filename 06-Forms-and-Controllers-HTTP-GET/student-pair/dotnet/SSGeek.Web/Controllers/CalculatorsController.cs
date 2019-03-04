@@ -29,17 +29,41 @@ namespace SSGeek.Web.Controllers
             return View(model);
         }
 
-        
+        // GET: Calculators/AlienAge
+        public ActionResult AlienAge()
+        {
+            return View();
+        }
+
+        // GET: calcualtors/alienageresult?planet=xyz&age=123
+        public ActionResult AlienAgeResult(AlienTravelModel model)
+        {
+            return View(model);
+        }
+
+        // GET: Calculators/AlienTravel
+        public ActionResult AlienTravel()
+        {
+            return View();
+        }
+
+        // GET: calcualtors/alientravelresult?planet=xyz&mode&age=123
+        public ActionResult AlienTravelResult(AlienTravelModel model)
+        {
+            return View(model);
+        }
+
+
 
         private List<SelectListItem> planets = new List<SelectListItem>()
         {
-            new SelectListItem() { Text = "Mercury" },
-            new SelectListItem() { Text = "Venus" },
-            new SelectListItem() { Text = "Mars" },
-            new SelectListItem() { Text = "Jupiter" },
-            new SelectListItem() { Text = "Saturn" },
-            new SelectListItem() { Text = "Neptune" },
-            new SelectListItem() { Text = "Uranus" }
+            new SelectListItem() { Text = "Mercury", Value= "0.38" },
+            new SelectListItem() { Text = "Venus", Value= "0.91" },
+            new SelectListItem() { Text = "Mars", Value= "0.38"  },
+            new SelectListItem() { Text = "Jupiter", Value= "2.34"  },
+            new SelectListItem() { Text = "Saturn", Value= "0.93"  },
+            new SelectListItem() { Text = "Neptune", Value= "1.12"  },
+            new SelectListItem() { Text = "Uranus", Value= "0.92"  }
         };
 
         private List<SelectListItem> transportationModes = new List<SelectListItem>()

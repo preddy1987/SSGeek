@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "NewPost";
+}
+
+<h2><strong>New Geek Post</strong></h2>
+
+<form asp-controller="Films" asp-action="SearchResult" method="get">
+    <div>
+        <label asp-for="Username">Username</label>
+        <input type="text" asp-for="Username" />
+        <label asp-for="Subject">Subject</label>
+        <input type="text" asp-for="Subject" />
+        <label asp-for="Message">Message</label>
+        <input type="text" asp-for="Message" />
+        <input type="submit" value="search" />
+    </div>
+</form>

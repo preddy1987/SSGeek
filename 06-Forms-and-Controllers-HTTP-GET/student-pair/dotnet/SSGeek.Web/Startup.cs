@@ -30,7 +30,8 @@ namespace SSGeek.Web
                 //options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+            string connectionString = Configuration.GetConnectionString("Default");
+            services.AddScoped<IForumPostDAL, ForumPostSqlDAL>(d => new ForumPostSqlDAL(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

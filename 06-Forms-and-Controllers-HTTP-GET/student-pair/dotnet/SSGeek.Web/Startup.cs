@@ -32,6 +32,7 @@ namespace SSGeek.Web
             });
             string connectionString = Configuration.GetConnectionString("Default");
             services.AddScoped<IForumPostDAL, ForumPostSqlDAL>(d => new ForumPostSqlDAL(connectionString));
+            services.AddScoped<IProductDAL, ProductSqlDAL>(d => new ProductSqlDAL(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

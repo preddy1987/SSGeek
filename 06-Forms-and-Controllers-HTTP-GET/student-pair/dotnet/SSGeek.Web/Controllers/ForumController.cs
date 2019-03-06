@@ -19,7 +19,8 @@ namespace SSGeek.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var posts = ForumPostDal.GetAllPosts();
+            return View(posts);
         }
 
         [HttpGet]
@@ -31,7 +32,10 @@ namespace SSGeek.Web.Controllers
         [HttpPost]
         public IActionResult NewPost(ForumPost post)
         {
-            return View();
+            
+            ForumPostDal.SaveNewPost(post);
+
+            return RedirectToAction("Index");
         }
     }
 }

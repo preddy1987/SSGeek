@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using SSGeek.Web.Models;
@@ -11,6 +12,9 @@ namespace SSGeek.Web.DAL
     {
         private string connectionString;
         private string getAllPost = "Select * from forum_post";
+        private string postYourNewPost = "Insert into forum_post (username,message,subject,post_date)" +
+            " Values (@username,@message,@subject,@postdate);" +
+            "SELECT CAST(SCOPE_IDENTITY() as int);";
 
 
         public ForumPostSqlDAL(string connectionString)
@@ -51,7 +55,32 @@ namespace SSGeek.Web.DAL
 
         public bool SaveNewPost(ForumPost post)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Create a new connection object
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Open the connection
+                    conn.Open();
+
+
+                    SqlCommand cmd = new SqlCommand(postYourNewPost, conn);
+
+                    cmd.Parameters.AddWithValue("@username", post.Username);
+                    cmd.Parameters.AddWithValue("@message", post.Message);
+                    cmd.Parameters.AddWithValue("@subject", post.Subject);
+                    cmd.Parameters.AddWithValue("@postdate", DateTime.Now.ToString());
+                   
+                    cmd.ExecuteScalar();
+                }
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+            return true;
+        }
+            
         }
     }
-}
+

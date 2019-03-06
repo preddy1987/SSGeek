@@ -163,9 +163,9 @@ input[type=text], input[type=datetime], textarea {
     width: 300px;
 }
 
-th, td {
+/*th, td {
     color: white;
-}
+}*/
 
 table tr:first-child {
     padding-bottom: 10px;
@@ -216,3 +216,52 @@ section.centeredPanel {
     #calculatorResult {
         display: flex;
     }
+
+    /*table {
+        background-color: white;
+    }*/
+
+    .title, h2 > a {
+    text-align: center;
+    color: white;
+    }
+
+    #row {
+        font-weight: bold;
+    }
+form {
+    margin-top: 20px;
+}
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+#fuckthisshit label{
+    background-color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "image descr descr descr descr"
+}
+
+.image {
+    grid-area: image;
+    height: 50%;
+    width: 50%;
+
+}
+
+.name > h3 {
+    font-weight: bold;
+}
+
+.name {
+    grid-area: descr;
+}
+
+
+.price {
+    font-weight: bold;
+    color:dodgerblue;
+}

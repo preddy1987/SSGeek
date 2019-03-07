@@ -30,6 +30,13 @@ namespace SSGeek.Web
                 //options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Sets session expiration to 20 minuates
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+            });
             string connectionString = Configuration.GetConnectionString("Default");
             services.AddScoped<IForumPostDAL, ForumPostSqlDAL>(d => new ForumPostSqlDAL(connectionString));
             services.AddScoped<IProductDAL, ProductSqlDAL>(d => new ProductSqlDAL(connectionString));
@@ -50,7 +57,7 @@ namespace SSGeek.Web
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

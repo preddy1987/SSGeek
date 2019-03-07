@@ -1,4 +1,5 @@
-﻿@model List<ForumPost>
+﻿@using SessionControllerData
+@model List<ForumPost>
 
 
 @{
@@ -7,19 +8,32 @@
 
 <section class="centeredPanel">
     <h2 class="title">Solar System Geek Forum</h2>
+
+    @if(TempData["Username"] != null)
+    {
+        <div class="post-message">Thanks @(TempData["Username"]), your message has been saved!</div>
+    }
+
     <a asp-controller="Forum" asp-action="NewPost">Post a Message</a>
+    <section id="forum-section">
 
-    <table class="table table-striped">
-        <tbody>
+        @foreach (var post in Model)
+        {
+        <section>
+            <div>
+                <strong>@post.Subject</strong>
+            </div>
 
-            @foreach (var post in Model)
-            {
-            <tr><td><strong>@post.Subject</strong></td>
-                <td>by @post.Username on @post.PostDate</td>  
-                <td>@post.Message</td>
-            </tr>
-            }
-        </tbody>
-    </table>
-</section>
+            <div>
+                by @post.Username on @post.PostDate
+            </div>
+
+            <div>
+                @post.Message
+            </div>
+        </section>
+        }
+    </section>
+
+    </section>
 

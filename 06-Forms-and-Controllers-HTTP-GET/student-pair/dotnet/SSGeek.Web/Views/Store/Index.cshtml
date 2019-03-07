@@ -9,17 +9,9 @@
     @foreach(var item in Model)
     {
     <div class="container">
-        <div class="img">
-            @*<a asp-controller="Store" asp-action="Detail" asp-route="@(item.Id)">*@<img src="~/images/@item.ImageName" class="image" />@*</a>*@
-        </div>
-
-        <div class="name">
-            <h3>@item.Name</h3>
+            <a asp-controller="Store" asp-action="Detail" asp-route-id="@(item.Id)"><img class="img" src="~/images/@item.ImageName"/></a>
+            <h3 class="name">@item.Name</h3>
             <h3 class="price">@item.Cost.ToString("C")</h3>
-        </div>
-
-           
-
     </div>
     }
 </section>

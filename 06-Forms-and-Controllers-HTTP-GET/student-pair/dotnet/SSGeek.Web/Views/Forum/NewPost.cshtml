@@ -4,16 +4,29 @@
     ViewData["Title"] = "NewPost";
 }
 
-<h2><strong>New Geek Post</strong></h2>
+
     
 <form asp-controller="Forum" asp-action="NewPost" method="post">
-    <div id="fuckthisshit">
-        <label asp-for="Username">Username</label>
-        <input type="text" asp-for="Username" />
-        <label asp-for="Subject">Subject</label>
-        <input type="text" asp-for="Subject" />
-        <label asp-for="Message">Message</label>
-        <input type="text" asp-for="Message" />
-        <input type="submit" value="Post" />
-    </div>
+    
+    <section class="centeredPanel">
+            <h2><strong>New Geek Post</strong></h2>
+            <div>
+                <label asp-for="Username">Username</label>
+                <input type="text" asp-for="Username" />
+                <span class="validation" asp-validation-for="Username"></span>
+            </div>
+
+            <div>
+                <label asp-for="Subject">Subject</label>
+                <input type="text" asp-for="Subject" />
+                <span class="validation" asp-validation-for="Subject"></span>
+            </div>
+
+            <div>
+                <label asp-for="Message">Message</label>
+                <input type="text" asp-for="Message" />
+                <span class="validation" asp-validation-for="Message"></span>
+            </div>
+            <input type="submit" value="Submit!" />
+        </section>
 </form>

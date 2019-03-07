@@ -50,17 +50,22 @@ namespace SSGeek.Web.Controllers
             return View(products);
         }
 
+        public ActionResult Detail(int id = 1)
+        {
+            return View(dal.GetProduct(id));
+        }
+
         [HttpPost]
-        public ActionResult AddToCart(Product product, int quantity)
+        public ActionResult AddToCart(int id, int quantity)
         {
             // Add whichever Product productId represents to the shopping cart
 
             //1.  Get the Product associated with id
-            product = dal.GetProduct(product.Id);
+            var product = dal.GetProduct(id);
 
             //2.  Add Product, qty 1 to our active shopping cart
             ShoppingCart cart = GetActiveShoppingCart();
-            cart.AddToCart(product, 1);
+            cart.AddToCart(product, quantity);
 
             //3. Save shopping cart
             SaveActiveShoppingCart(cart);

@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SSGeek.Web.DAL;
 using SSGeek.Web.Models;
+using SessionControllerData;
 
 namespace SSGeek.Web.Controllers
 {
-    public class ForumController : Controller
+    public class ForumController : SessionController
     {
         IForumPostDAL ForumPostDal;
 
@@ -32,10 +33,21 @@ namespace SSGeek.Web.Controllers
         [HttpPost]
         public IActionResult NewPost(ForumPost post)
         {
-            
-            ForumPostDal.SaveNewPost(post);
+            IActionResult result = null;
 
-            return RedirectToAction("Index");
+            TempData["Username"] = post.Username;
+
+            if (!ModelState.IsValid)
+            {
+                result = View("NewPost");
+            }
+            else
+            {
+                ForumPostDal.SaveNewPost(post);
+                result = RedirectToAction("Index", "Forum");
+            }
+
+            return result;
         }
     }
 }

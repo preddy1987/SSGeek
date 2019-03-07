@@ -235,21 +235,25 @@ form {
 tr:nth-child(even) {
     background-color: lightgray;
 }
-#fuckthisshit label{
+#newpost-form{
     background-color: white;
 }
 
 .container {
+    border:solid;
+    border-color:red;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-areas: "image descr descr descr descr"
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "image descr descr"
 }
 
-.image {
+.img {
     grid-area: image;
-    height: 50%;
-    width: 50%;
-
+    margin-top:20%;
+    align-content:center;
+    height: 70%;
+    width: 70%;
+    
 }
 
 .name > h3 {
@@ -258,6 +262,7 @@ tr:nth-child(even) {
 
 .name {
     grid-area: descr;
+    margin-top: 20%;
 }
 
 
@@ -265,3 +270,68 @@ tr:nth-child(even) {
     font-weight: bold;
     color:dodgerblue;
 }
+
+#detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+        ". title title ."
+        "image price price ."
+        ". stuff stuff ."
+        ". input input ."
+}
+
+.page {
+    grid-area: page;
+}
+
+.detail-image {
+    grid-area: image;
+    border: 1px solid red;
+    width: 100%;
+    height: auto;
+
+}
+
+.div-image {
+    border: 1px solid blue;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: right;
+}
+
+
+
+.detail-title {
+    grid-area: title;
+    font-weight: bold;
+    font-size:20px;
+    text-align:center;
+}
+
+.detail-price {
+    grid-area: price;
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+.detail-description {
+    grid-area: stuff;
+
+}
+
+.detail-input {
+    grid-area: input;
+}
+
+.post-message {
+    background-color: limegreen;
+    color: white;
+    width: 60%;
+    text-align: center;
+}
+
+#forum-section > :nth-child(even) {
+    background-color: lightgray;
+}
+

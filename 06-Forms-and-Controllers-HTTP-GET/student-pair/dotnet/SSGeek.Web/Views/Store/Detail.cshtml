@@ -1,21 +1,26 @@
 ﻿@model Product
 
 
-<section class="centeredPanel" id="detail">
+<section class="centeredPanel">
     <h2 class="page">Solar System Geek Gift Shop</h2>
-    <div class="div-image">
-        <img src="~/images/@(Model.ImageName)" class="detail-image">
-    </div>
-    <div class="detail-title">@Model.Name</div>
-    <div class="detail-price">@Model.Cost.ToString("C")</div>
-    <div class="detail-description">@Model.Description</div>
+    <div id="detail">
+        <div class="div-image">
+            <img src="~/images/@(Model.ImageName)" class="detail-image">
+        </div>
+        <div>
+            <div class="detail-title">@Model.Name</div>
+            <div class="detail-price">@Model.Cost.ToString("C")</div>
+            <div class="detail-description">@Model.Description</div>
 
-    <form asp-controller="Store" asp-action="AddToCart" method="post" class="detail-input">
-        <label asp-for="Quantity">Quantity to buy</label>
-        <input asp-for="Quantity" />
-        <input type="hidden" value="@Model.Id" name="id" />
-        <input type="submit" value="Add to Cart" />
-    </form>
+            <form asp-controller="Store" asp-action="AddToCart" method="post" class="detail-input">
+                <label asp-for="Quantity">Quantity to buy</label>
+                <input asp-for="Quantity" />
+                <input type="hidden" value="@Model.Id" name="id" />
+                <input type="submit" value="Add to Cart" class="btn btn-primary"/>
+            </form>
+
+        </div>
+    </div>
 </section>
 
 

@@ -5,13 +5,23 @@
 }
 <section class="centeredPanel">
     <h2>Solar System Geek Gift Shop</h2>
+    <div class="store-grid">
 
-    @foreach(var item in Model)
-    {
-    <div class="container">
-            <a asp-controller="Store" asp-action="Detail" asp-route-id="@(item.Id)"><img class="img" src="~/images/@item.ImageName"/></a>
-            <h3 class="name">@item.Name</h3>
-            <h3 class="price">@item.Cost.ToString("C")</h3>
+        @foreach (var item in Model)
+        {
+           
+            <div>
+                <a asp-controller="Store" asp-action="Detail" asp-route-id="@(item.Id)"><img class="img" src="~/images/@item.ImageName" /></a>
+            </div>
+
+            <div>
+                <h3 class="name">@item.Name</h3>
+                <h3 class="price">@item.Cost.ToString("C")</h3>
+            </div>
+
+
+        }
     </div>
-    }
-</section>
+
+
+    </section>

@@ -36,7 +36,7 @@ namespace SSGeek.Web.Controllers
         }
 
         // GET: calcualtors/alienageresult?planet=xyz&age=123
-        public ActionResult AlienAgeResult(AlienTravelModel model)
+        public ActionResult AlienAgeResult(AlienAgeModel model)
         {
             return View(model);
         }

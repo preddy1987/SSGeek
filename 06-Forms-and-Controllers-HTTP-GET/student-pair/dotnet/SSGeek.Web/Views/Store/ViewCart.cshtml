@@ -3,35 +3,51 @@
     ViewData["Title"] = "ViewCart";
 }
 
-<h2>View Cart</h2>
+<section class="centeredPanel" id="checkout">
+    @*<h2>Solar System Geek Gift Shop</h2>*@
+    <div class="header">
+        
+            <div class="name">
+                Name
+            </div>
+            <div class="price">
+                Price
+            </div>
+            <div class="qty">
+                Qty.
+            </div>
+            <div class="total">
+                Total
+            </div>
+       
 
-<table class="table table-striped">
-    <tr>
-        <td></td>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Qty.</td>
-        <td>Total</td>
-    </tr>
+    </div>
 
-    @* Loop Through the Items in the Cart and Display Them Here *@
-    @foreach (var item in Model.Items)
-    {
-        <tr>
-            <td><img src="~/images/@item.Product.ImageName"></td>
-            <td>@item.Product.Name</td>
-            <td>@item.Product.Cost</td>
-            <td>@item.Quantity</td>
-            <td>@((item.Product.Cost * item.Quantity).ToString("C"))</td>
-        </tr>
-    }
+    <div class="shoppingcart">
+        @* Loop Through the Items in the Cart and Display Them Here *@
+        @foreach (var item in Model.Items)
+        {
+          <div class="cart-image">
+              <img src="~/images/@item.Product.ImageName">
+          </div> 
 
+          <div class="cart">
+              <div class="name">@item.Product.Name</div>
+              <div class="price">@item.Product.Cost</div>
+              <div class="qty">@item.Quantity</div>
+              <div class="total">@((item.Product.Cost * item.Quantity).ToString("C"))</div>
+          </div>
 
-    <tr>
-        <td colspan="4">Grand Total</td>
-        <td>@Model.GrandTotal.ToString("C")</td>
-    </tr>
-</table>
+        }
+
+        <div>
+            <span>Grand Total</span>
+            <span>@Model.GrandTotal.ToString("C")</span>
+        </div>
+
+    </div>
+
+</section>
 
 @*<td>
     <form method="post" asp-action="RemoveFromCart" asp-controller="Store">

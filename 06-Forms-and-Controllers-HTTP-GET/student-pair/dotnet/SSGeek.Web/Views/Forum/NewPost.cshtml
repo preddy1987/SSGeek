@@ -24,9 +24,12 @@
 
             <div>
                 <label asp-for="Message">Message</label>
-                <input type="text" asp-for="Message" />
+                <textarea asp-for="Message"></textarea>
                 <span class="validation" asp-validation-for="Message"></span>
             </div>
-            <input type="submit" value="Submit!" />
+
+            <div class="button" >
+                <input type="submit" value="Submit!"/>
+            </div>
         </section>
 </form>

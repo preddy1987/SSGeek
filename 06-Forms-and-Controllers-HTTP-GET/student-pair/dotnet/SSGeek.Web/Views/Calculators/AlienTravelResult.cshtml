@@ -9,6 +9,6 @@
 
     <img src="~/images/@(Model.Planet).jpg" class="planet-picture" />
 
-    <p class="description">Traveling by @Model.Mode you will reach @Model.Planet in @Model.TravelConversion() years. You will be @Model.YearsTook() years old.</p>
+    <p class="description">Traveling by @Model.Mode you will reach @Model.Planet in @Math.Round(Model.TravelConversion(),2) years. You will be @Math.Round(Model.YearsTook(),2) years old.</p>
 
 </section>

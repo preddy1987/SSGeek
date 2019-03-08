@@ -7,14 +7,16 @@
 }
 
 <section class="centeredPanel">
-    <h2 class="title">Solar System Geek Forum</h2>
+    <h4 class="title">Solar System Geek Forum</h4>
 
     @if(TempData["Username"] != null)
     {
         <div class="post-message">Thanks @(TempData["Username"]), your message has been saved!</div>
     }
-
-    <a asp-controller="Forum" asp-action="NewPost">Post a Message</a>
+    <div class="hyperlink">
+        <a asp-controller="Forum" asp-action="NewPost">Post a Message</a>
+    </div>
+    
     <section id="forum-section">
 
         @foreach (var post in Model)
